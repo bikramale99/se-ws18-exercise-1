@@ -23,7 +23,7 @@ public class Image {
 	
 	/*public static void main(String[] args) throws IOException {
 		
-		image(200,200);
+		Image(200,200);
 	    writeImage(fileName);	
 	
 		
@@ -32,7 +32,7 @@ public class Image {
 	
 	public static void Image(int width, int height){
 		pic=new ArrayList();
-		byte [] image=new byte[3];
+		byte [] Image=new byte[3];
 		matrix +="P3\n" + width + "\n" + height + "\n255\n";
 		
 		for (int i = 0; i < height; i++) {
@@ -40,20 +40,20 @@ public class Image {
 				Color p= setPixels(width,height,j,i);
 				
 				if(p==Color.red) {
-					image[0]=(byte)(255*factor(width,height,j,i));
-					image[1]=0;
-					image[2]=0;		
+					Image[0]=(byte)(255*factor(width,height,j,i));
+					Image[1]=0;
+					Image[2]=0;		
 				}else if (p==Color.green) {
-					image[0]=0;
-					image[1]=(byte)(255*factor(width,height,j,i));
-					image[2]=0;	
+					Image[0]=0;
+					Image[1]=(byte)(255*factor(width,height,j,i));
+					Image[2]=0;	
 				}else if (p==Color.blue) {
-					image[0]=0;
-					image[1]=0;
-					image[2]=(byte)(255*factor(width,height,j,i));
+					Image[0]=0;
+					Image[1]=0;
+					Image[2]=(byte)(255*factor(width,height,j,i));
 					
 				}
-				matrix += ""+ image[0] + " " + image[1] + " " + image[2] + "  " ;
+				matrix += ""+ Image[0] + " " + Image[1] + " " + Image[2] + "  " ;
 				
 				
 			}
