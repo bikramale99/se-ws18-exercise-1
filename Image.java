@@ -20,7 +20,7 @@ public class Image
 public static void set(int x_factor, int y_factor, int val) {
 		String st = hexVal + Integer.toHexString(val) ;
 		System.out.println(st);
-		//3 bytes per pixel throughout the width
+		
 		index = (y_factor*width+x_factor)*3;
 		int count=0; 
 		int sub1=2; 
@@ -50,3 +50,4 @@ public void write(String filename) throws IOException {
 	fname.close();
 }
 }
+//we concern stackoverflow for some of the codes
