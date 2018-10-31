@@ -1,4 +1,3 @@
-
 import java.awt.Color;
     
 
@@ -17,13 +16,13 @@ public class Image {
 	private static ArrayList pic;
 	private static String matrix="";
 	
-	
+	private static Color color;
 	private final static String fileName="Assignment1.ppm";
 	
 	
 	/*public static void main(String[] args) throws IOException {
 		
-		Image(200,200);
+		image(200,200);
 	    writeImage(fileName);	
 	
 		
@@ -32,28 +31,28 @@ public class Image {
 	
 	public static void Image(int width, int height){
 		pic=new ArrayList();
-		byte [] Image=new byte[3];
+		byte [] image=new byte[3];
 		matrix +="P3\n" + width + "\n" + height + "\n255\n";
 		
 		for (int i = 0; i < height; i++) {
 			for (int j = 0; j < width; j++) {
-				Color p= setPixels(width,height,j,i);
+				 setPixels(width,height,j,i);
 				
-				if(p==Color.red) {
-					Image[0]=(byte)(255*factor(width,height,j,i));
-					Image[1]=0;
-					Image[2]=0;		
-				}else if (p==Color.green) {
-					Image[0]=0;
-					Image[1]=(byte)(255*factor(width,height,j,i));
-					Image[2]=0;	
-				}else if (p==Color.blue) {
-					Image[0]=0;
-					Image[1]=0;
-					Image[2]=(byte)(255*factor(width,height,j,i));
+				if(color==Color.red) {
+					image[0]=(byte)(255*factor(width,height,j,i));
+					image[1]=0;
+					image[2]=0;		
+				}else if (color==Color.green) {
+					image[0]=0;
+					image[1]=(byte)(255*factor(width,height,j,i));
+					image[2]=0;	
+				}else if (color==Color.blue) {
+					image[0]=0;
+					image[1]=0;
+					image[2]=(byte)(255*factor(width,height,j,i));
 					
 				}
-				matrix += ""+ Image[0] + " " + Image[1] + " " + Image[2] + "  " ;
+				matrix += ""+ image[0] + " " + image[1] + " " + image[2] + "  " ;
 				
 				
 			}
@@ -64,15 +63,22 @@ public class Image {
 		
 	}
 	
-	public static Color setPixels(int width,int height, int a,int b ) {
+	public static void setPixels(int width,int height, int a,int b ) {
 			
 		double d1 = ((double) width / height) * a;
         double d2 = (((double) -width / height) * a + height);
-        if(d1 > b && d2 > b) return Color.green;
-        if(d1 > b && d2 < b) return Color.blue;
+        if(d1 > b && d2 > b) 
+        	{
+        	color= Color.green;
+        	}
+        else if(d1 > b && d2 < b)
+        {
+        	color= Color.blue;
+        	}
+        else {
        
-        return Color.red;
-
+        color= Color.red;
+        }
 	}
 	
 	
