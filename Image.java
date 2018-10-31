@@ -40,13 +40,13 @@ public static void set(int x_factor, int y_factor, int val) {
 //throws IOException
 public void write(String filename) throws IOException {
 	
-	FileOutputStream out = new FileOutputStream(filename);
+	FileOutputStream fname = new FileOutputStream(filename);
 	byte[] header = ("P3\n" + width + "\n" + height + "\n255\n").getBytes();
-	out.write(header);
+	fname.write(header);
 	for(int i=0; i<data.length; i++)
 			{
 				out.write(data[i]);
 			}
-	out.close();
+	fname.close();
 }
 }
