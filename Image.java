@@ -3,8 +3,6 @@ import java.io.IOException;
 
 public class Image
 {
-	
-
 	public static int width;
 	public static int height;
 	public static byte  [] data;   // byte array to stores the binary image data
@@ -39,14 +37,12 @@ public static void set(int x_factor, int y_factor, int val) {
 	
 }
 //a method to write image data into file
-
+//throws IOException
 public void write(String filename) throws IOException {
 	
 	FileOutputStream out = new FileOutputStream(filename);
-	//writes header file for the image with specified height and width
 	byte[] header = ("P3\n" + width + "\n" + height + "\n255\n").getBytes();
 	out.write(header);
-	//Writes throughout the image for pixel value
 	for(int i=0; i<data.length; i++)
 			{
 				out.write(data[i]);
