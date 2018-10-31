@@ -45,7 +45,7 @@ public void write(String filename) throws IOException {
 	fname.write(header);
 	for(int i=0; i<data.length; i++)
 			{
-				out.write(data[i]);
+				fname.write(data[i]);
 			}
 	fname.close();
 }
