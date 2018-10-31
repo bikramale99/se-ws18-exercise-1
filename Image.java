@@ -3,43 +3,43 @@ import java.io.IOException;
 
 public class Image
 {
-	// byte array to hold the raw image data
+	
 
 	public static int width;
 	public static int height;
-	public static byte  [] data;
+	public static byte  [] data;   // byte array to stores the binary image data
 	static int index;
 	static String hexVal = "0x";
 
-//constructor to create image object with specified height and width	
+//constructor to create image object with height and width	
 	public Image(int width, int height) {
 		Image.width = width;
 		Image.height = height;
 		data = new byte[3*height*width];
 			
 	}
-//sets method to set the rgb values to single pixel
-public static void set(int x, int y, int val) {
+//sets method to set the signle pixel to the RGB values
+public static void set(int x-factor, int y-factor, int val) {
 		String st = hexVal + Integer.toHexString(val) ;
 		System.out.println(st);
 		//3 bytes per pixel throughout the width
-		index = (y*width+x)*3;
+		index = (y-factor*width+x-factor)*3;
 		int count=0; 
 		int sub1=2; 
 		int sub2=4;
-		//setting up the pixel position
-				while (count <= 2 )
-				 {
-					String substr = st.substring(sub1, sub2);
-					data [index + count] = (byte) Integer.parseInt(substr, 16);			//https://www.javamex.com/tutorials/conversion/decimal_hexadecimal.shtml
-					count++;
-					sub1 = sub2;
-					sub2 +=2;
-				}
+		
+		while (count <= 2 )
+		{
+		String substr = st.substring(sub1, sub2);
+		data [index + count] = (byte) Integer.parseInt(substr, 16);		
+		count++;
+		sub1 = sub2;
+		sub2 +=2;
+		}
 	
 }
-//writes image data into file
-// throws IOException for handling file writing errors
+//a method to write image data into file
+
 public void write(String filename) throws IOException {
 	
 	FileOutputStream out = new FileOutputStream(filename);
