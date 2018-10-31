@@ -11,7 +11,7 @@ import java.awt.Color;
 public class Image {
 	private static  int height=0;
 	private static  int width=0;
-	
+	public byte[] data;
 
 	private static ArrayList pic;
 	private static String matrix="";
@@ -28,6 +28,13 @@ public class Image {
 		
 	}*/
 	
+	public Image(int height, int width) {
+		
+		this.height = height;
+		this.width = width;
+		this.data = new byte [height*width*3];
+		
+	}
 	
 	public static void Image(int width, int height){
 		pic=new ArrayList();
